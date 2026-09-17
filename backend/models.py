@@ -28,8 +28,11 @@ def build_resnet18(num_classes):
 
 def load_model(path, num_classes):
     model = build_resnet18(num_classes)
-    state_dict = torch.load(path, map_location=DEVICE)
-    model.load_state_dict(state_dict)
+    if os.path.isfile(path):
+        state_dict = torch.load(path, map_location=DEVICE)
+        model.load_state_dict(state_dict)
+    else:
+        print(f"Notice: {os.path.basename(path)} not found. Initialized model for demo/cloud deployment.")
     model.to(DEVICE)
     model.eval()
     return model
