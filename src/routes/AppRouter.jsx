@@ -55,7 +55,7 @@ const AppRouter = () => {
         <Route path="cce" element={<CCEOptimization />} />
         <Route path="reports" element={<Reports />} />
         <Route path="history" element={<HistoryTimeline />} />
-        <Route path="growth-analysis" element={<GrowthAnalysis />} />
+        <Route path="growth" element={<GrowthAnalysis />} />
       </Route>
       <Route path="/" element={<Navigate to="/dashboard" />} />
       <Route path="*" element={<Navigate to="/dashboard" />} />
